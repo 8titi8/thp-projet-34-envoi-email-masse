@@ -38,7 +38,7 @@
 	twitter
 	watir
 
-<h2>Maryse, apporte moi donc le sauccison et le tree !</h2>
+<h2>Maryse, apporte moi donc le saucison et le tree !</h2>
 
 
 	├── Gemfile
