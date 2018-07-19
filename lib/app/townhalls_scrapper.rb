@@ -55,15 +55,25 @@ def perform_all_url
 	 get_all_the_urls_of("allier.html","03")
 end
 
-def create_json_file(array_to_convert)
-	File.open("../../db/emails.json", "w") do |f|
-		f.write(array_to_convert)
+def create_csv(array_to_push)
+		CSV.open("../../db/townhalls_names_emails_listing.csv", "wb") do |csv_file|
+			csv_file << array_to_push.first.keys
+			array_to_push.each do |the_hash|
+				csv_file << the_hash.values
+			end
 	end
 end
 
 def perform
-	create_json_file(perform_all_url)
+	create_csv(perform_all_url)
 end
 
 end
 Scrapper.new.perform
+
+
+
+#def create_json_file(array_to_convert)
+	#File.open("../../db/emails.json", "w") do |f|
+		#f.write(array_to_convert)
+	#end
