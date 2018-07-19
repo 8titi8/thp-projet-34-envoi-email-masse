@@ -39,3 +39,22 @@
 	watir
 
 <h2>Maryse, apporte moi donc le sauccison</h2>
+
+	├── Gemfile
+	├── Gemfile.lock
+	├── README.md
+	├── app.rb
+	├── db
+	│   ├── emails.json
+	│   └── townhalls_names_emails_listing.csv
+	└── lib
+    	├── app
+    	│   ├── thp-logo.png
+	│   ├── townhalls_adder_to_db.rb
+   	│   ├── townhalls_follower.rb
+    	│   ├── townhalls_handles_getter.rb
+    	│   ├── townhalls_mailer.rb
+    	│   └── townhalls_scrapper.rb
+    	└── views
+        	├── done.rb
+        	└── index.rb
