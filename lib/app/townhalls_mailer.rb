@@ -7,30 +7,34 @@ require 'json'    # va nous permettre de récup et utiliser le fichier json
 Dotenv.load
 
 class Mailer
-  attr_accessor :email, :session_gmail, :list
+  attr_accessor :email, :session_gmail
     # def qui va lancer gmail lorsque l'on va lancer la classe
     def initialize
     # On initialise la session gmail pour la connexion et envoi des emails
     # On déclare nos 2 variables d'instance qui vont nous servir plus tard
     @@session_gmail = Gmail.connect("thp.nice@gmail.com", ENV['PASSWORD'])
     @@email = email
-    @@list = []
-
-
     end
+
     # def qui va permettre de récupérer les fichiers JSON et transformer la donner de sorte
     # à n'utiliser que les emails
     def address_book_emails
-        @@list.each do |name, email, dep|
-            email = []
-
+        CSV.foreach("../../db/gaga") do |row|
+            row[2].each do |handle|
+                puts handle
+            end
     end
+    end
+
 
     def city_name
-        @@list.each do |name, email, dep|
-            name = []
-
+       CSV.foreach("../../db/gaga") do |row|
+            row[1].each do |handle|
+                puts handle
+            end
     end
+    end
+
 
     def message
         @@session_gmail
@@ -48,7 +52,7 @@ class Mailer
         font apprendre le code. Le projet du jour est d'envoyer (avec du codage) des emails aux mairies
         pour qu'ils nous aident à faire de The Hacking Project un nouveau format d'éducation pour tous.</p>
 
-        <p>Déjà 500 personnes sont passées par The Hacking Project. Est-ce que la mairie de #{"@@city_name.name"}
+        <p>Déjà 500 personnes sont passées par The Hacking Project. Est-ce que la mairie de ....
         veut changer le monde avec nous ?</p>
 
         <p>Charles, co-fondateur de The Hacking Project pourra répondre à toutes vos questions.
@@ -65,6 +69,8 @@ class Mailer
 
     def perform
         message
+        address_book_emails
+        city_name
     end
 
 end
