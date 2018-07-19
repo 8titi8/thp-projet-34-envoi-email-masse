@@ -89,6 +89,7 @@ DEPENDENCIES
   dotenv
   gmail
   gmail_xoauth
+  mail
   nokogiri
   pry
   rubocop
