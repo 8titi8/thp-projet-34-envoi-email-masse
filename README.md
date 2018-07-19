@@ -24,8 +24,18 @@
 
 <h2>Didier!!! Comment ça marche ce truc ?</h2>
 
-<p> Tout d'abord, tu BUNDLE dans le building afin d'appeler les potos, les Gems #ohyeah </p>
+<p>Tout d'abord, tu BUNDLE dans le building afin d'appeler les potos, les Gems #ohyeah </p>
 
-	curl 'localhost:3000/v1/full_text/MA_RECHERCHE'
+	bundle install
 
+<p>La fine équipe des Gems</p> 
 
+	gmail
+	json
+	nokogeri
+	pry
+	dotenv
+	twitter
+	watir
+
+<h2>Maryse, apporte moi donc le sauccison</h2>
