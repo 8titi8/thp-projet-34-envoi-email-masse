@@ -9,3 +9,7 @@
 	<li><strong>Thomas Fernandez</strong> : 06 58 88 68 09</li>
 	<li><strong>Mathilde Ray</strong> : 06 25 98 18 85</li>
 </ul>
+
+<h2>Le commencement</h2>
+
+<p>L'équipe de Nice vous présente son formidable travail. Le but de ce dernier, faire un scrapp des mails des comunes de plusieurs départements et envoyer un mail à chacune des comunes. Ouloulou, beaucoup de mails afin de présenter notre superbe formation. </p>
