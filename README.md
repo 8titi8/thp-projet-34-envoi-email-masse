@@ -38,7 +38,7 @@
 	twitter
 	watir
 
-<h2>Maryse, apporte moi donc le saucison et le tree !</h2>
+<h2>Maryse, apporte moi donc le saucisson et le tree !</h2>
 
 
 	├── Gemfile
@@ -69,6 +69,7 @@
 <li>townhalls_scrapper : pour la réalisation du scrapping</li>  
 <li>townhalls_mailer.rb : pour envoyer les mails aux communes</li> 
 <li>townhalls_handles_getter.rb : pour la partie twitter</li> 
+<li>les views (index et done): elles permettent des aller retour joyeux entre nos applis</li> 
  </ul>   	
 
 <h2>Les résultats</h2>
