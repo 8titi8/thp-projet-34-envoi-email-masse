@@ -16,13 +16,12 @@
 
 <h2>Le kikafékoi</h2>
 
-Le scrappeur
-Envoyer les emails
-Petite relance Twitter
-
-<ul>Edité par :
+<ul>
 <li><strong>Thomas le magnifique pour la réalisation du scrappeur #akajesuisunrappeur</strong></li>
 <li><strong>Gaëlle alias Poker Face pour l'envoie des mails</strong></li>
 <li><strong>Mathilde ou TiTi pour la partie Tweet</strong></li>
 </ul>
+
+<h2>Didier!!! Comment ça marche ce truc ?</h2>
+
 
