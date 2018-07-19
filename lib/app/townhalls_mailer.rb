@@ -16,9 +16,9 @@ class Mailer
     @@session_gmail = Gmail.connect("thp.nice@gmail.com", ENV['PASSWORD'])
     @@email = email
     end
-
     # def qui va permettre de récupérer les fichiers JSON et transformer la donner de sorte
     # à n'utiliser que les emails
+    def address_book_emails
 
     #def qui sert à envoyer les emails aux mairies via le compte gmail de THP Nice et
     #qui indique qu'il nous faut trouver un mail et un nom de mairie
@@ -30,7 +30,7 @@ class Mailer
 
         html_part do
         content_type 'text/html; charset=UTF-8'
-        body "<p>Bonjour,<br />
+        body "<font color='blue'><p>Bonjour,<br />
 
         <p>Je m'appelle Thomas, je suis élève à <em>The Hacking Project</em>, une formation au code gratuite,
         sans locaux, sans sélection, sans restriction géographique. La pédagogie de nore école est
@@ -47,7 +47,7 @@ class Mailer
 
         <p>Bien à vous,</p><br />
 
-        <p>L'équipe THP de Nice.</p>"
+        <p>L'équipe THP de Nice.</p></font>"
       end
       add_file "thp-logo.png" # et on ajoute une petite photo THP, c'est la classe!
         end

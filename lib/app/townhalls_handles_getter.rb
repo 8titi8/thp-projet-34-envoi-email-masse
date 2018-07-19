@@ -4,9 +4,11 @@ require 'dotenv'
 # Ceci appelle le fichier .env grâce à la gem dotenv, et enregistre toutes les données enregistrées dans une hash ENV
 Dotenv.load
 
+require 'json'
+
 class Handles
 
-	def search_handles(townhall_name)
+	def search_handle(townhall_name)
 		townhall_name = "la colle sur loup"
 		browser = Watir::Browser.new
 		browser.goto 'https://twitter.com/login?lang=en'
@@ -36,22 +38,14 @@ class Handles
 		browser.driver.manage.timeouts.implicit_wait = 20
 		#permet d'attendre que la page se charge
 
-		p browser.div(class: "stream").span(class: "username").text
+		@townhall_handle = browser.div(class: "stream").span(class: "username").text
 		# affiche le handle du 1er tweet
-
+		return @townhall_handle
 	end
 
-	def get_each_townhall_name
-		text = localStorage.getItem("testJSON");
-		obj = JSON.parse(text);
-		document.getElementById("demo").innerHTML = obj.name; 
-	end
-
-
-search_handles
 p "Méfait accompli, fermeture du browser"
-browser.close
 
+	#browser.close
 end
 
-Handles.new
+Handles.new.search_handle
