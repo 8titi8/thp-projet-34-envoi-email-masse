@@ -26,7 +26,7 @@
 
 <p>Tout d'abord, tu BUNDLE dans le building afin d'appeler les potos, les Gems #ohyeah </p>
 
-	bundle install
+	$ bundle install
 
 <p>La fine équipe des Gems</p> 
 
@@ -61,3 +61,7 @@
         		└── index.rb
 
 <h2>Un peu de sérieux</h2>
+
+	$ ruby app.rb
+	
+
