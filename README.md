@@ -64,10 +64,11 @@
 
 	$ ruby app.rb
 
+<ul>
 env : pour stocker nos identités 	
 townhalls_scrapper : pour la réalisation du scrapping 
 townhalls_mailer.rb : pour envoyer les mails aux communes
 townhalls_handles_getter.rb : pour la partie twitter
-    	
+ </ul>   	
 
 <h2>Les résultats</h2>
