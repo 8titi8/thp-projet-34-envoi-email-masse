@@ -48,4 +48,3 @@ p "Méfait accompli, fermeture du browser"
 	#browser.close
 end
 
-Handles.new.search_handle

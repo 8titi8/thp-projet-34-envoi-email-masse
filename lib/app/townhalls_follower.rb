@@ -21,7 +21,7 @@ class Follower
 		  config.access_token_secret = ENV["TWITTER_USER_TOKEN_SECRET"]
 		end
 	end
-	
+
 	def follow_each_townhall
 		CSV.foreach("../../db/townhalls_names_emails_listing.csv") do |row|
 				@client.follow("#{row[3].delete_prefix("@")}")
@@ -29,5 +29,3 @@ class Follower
 	end
 
 end
-
-Follower.new.follow_each_townhall

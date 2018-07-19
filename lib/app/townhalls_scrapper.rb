@@ -69,8 +69,6 @@ def perform
 end
 
 end
-Scrapper.new.perform
-
 
 
 #def create_json_file(array_to_convert)

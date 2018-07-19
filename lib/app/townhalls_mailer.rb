@@ -18,7 +18,6 @@ class Mailer
     end
     # def qui va permettre de récupérer les fichiers JSON et transformer la donner de sorte
     # à n'utiliser que les emails
-    def address_book_emails
 
     #def qui sert à envoyer les emails aux mairies via le compte gmail de THP Nice et
     #qui indique qu'il nous faut trouver un mail et un nom de mairie
@@ -66,4 +65,3 @@ class Mailer
 
 end
 
-Mailer.new.perform
