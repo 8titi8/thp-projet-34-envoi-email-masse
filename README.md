@@ -24,8 +24,8 @@
 
 <h2>Didier!!! Comment ça marche ce truc ?</h2>
 
-<p> Tout, tu BUNDLE dans le building afin d'appeler les potos, les Gems #ohyeah </p>
+<p> Tout d'abord, tu BUNDLE dans le building afin d'appeler les potos, les Gems #ohyeah </p>
 
-<div style="width:200px;height:200px;border:2px solid #999999;"></div>
+	curl 'localhost:3000/v1/full_text/MA_RECHERCHE'
 
 
