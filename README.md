@@ -13,3 +13,16 @@
 <h2>Le commencement</h2>
 
 <p>L'équipe de Nice vous présente son formidable travail. Le but de ce dernier, faire un scrapp des mails des comunes de plusieurs départements et envoyer un mail à chacune des comunes. Ouloulou, beaucoup de mails afin de présenter notre superbe formation. </p>
+
+<h2>Le kikafékoi</h2>
+
+Le scrappeur
+Envoyer les emails
+Petite relance Twitter
+
+<ul>Edité par :
+<li><strong>Thomas le magnifique pour la réalisation du scrappeur #akajesuisunrappeur</strong></li>
+<li><strong>Gaëlle alias Poker Face pour l'envoie des mails</strong></li>
+<li><strong>Mathilde ou TiTi pour la partie Tweet</strong></li>
+</ul>
+
