@@ -72,3 +72,5 @@
  </ul>   	
 
 <h2>Les résultats</h2>
+
+607 mails envoyés 
