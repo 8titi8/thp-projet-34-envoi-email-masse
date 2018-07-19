@@ -57,7 +57,7 @@
     	│   ├── townhalls_mailer.rb
     	│   └── townhalls_scrapper.rb
     	└── views
-        	├── done.rb
-        	└── index.rb
+        		├── done.rb
+        		└── index.rb
 
 <h2>Un peu de sérieux</h2>
