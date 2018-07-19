@@ -51,8 +51,8 @@
 	└── lib
     	├── app
     	│   ├── thp-logo.png
-	│   ├── townhalls_adder_to_db.rb
-   	│   ├── townhalls_follower.rb
+		│   ├── townhalls_adder_to_db.rb
+   		│   ├── townhalls_follower.rb
     	│   ├── townhalls_handles_getter.rb
     	│   ├── townhalls_mailer.rb
     	│   └── townhalls_scrapper.rb
