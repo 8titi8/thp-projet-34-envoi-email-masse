@@ -9,16 +9,3 @@
 	<li><strong>Thomas Fernandez</strong> : 06 58 88 68 09</li>
 	<li><strong>Mathilde Ray</strong> : 06 25 98 18 85</li>
 </ul>
-
-
-
-├── app
-│   ├── thp-logo.png
-│   ├── townhalls_adder_to_db.rb
-│   ├── townhalls_follower.rb
-│   ├── townhalls_handles_getter.rb
-│   ├── townhalls_mailer.rb
-│   └── townhalls_scrapper.rb
-└── views
-    ├── done.rb
-    └── index.rb
