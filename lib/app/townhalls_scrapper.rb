@@ -14,7 +14,9 @@ class Scrapper
 		@url_townhalls = []
 		@townhalls_names = []
 		@townhalls_emails = []
+		@townhalls_department = []
 		@@townhalls_names_emails = []
+
 	end
 
 	def get_the_email_of_a_townhal_from_its_webpage                                                             # Récupère l'adresse e-mail d'une mairie sur sa homepage
@@ -27,6 +29,7 @@ class Scrapper
 	    Nokogiri::HTML(open("http://annuaire-des-mairies.com/#{url_townhall_wanted}")).css('.lientxt').each do |town|    # Récupère les noms et les adresses url des mairies et les stocke dans des arrays
 	        @url_townhalls << "http://annuaire-des-mairies.com/#{department}/#{town.text.downcase.gsub(" ","-")}.html"
 	        @townhalls_names << town.text.downcase.gsub(" ","-")
+					@townhalls_department << department
 	    end
 
 	    @url_townhalls.each do |url_townhall|
@@ -38,6 +41,7 @@ class Scrapper
 	        hash_temp = {}
 	        hash_temp["name"] = @townhalls_names[i]
 	        hash_temp["email"] = @townhalls_emails[i]
+					hash_temp["department"] = @townhalls_department[i]
 	        @@townhalls_names_emails << hash_temp                                                                   # Combine les arrays des noms de mairies et leurs e-mails en un hash
 	    end
 
