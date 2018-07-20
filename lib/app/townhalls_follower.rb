@@ -1,11 +1,10 @@
- # ligne très importante qui appelle la gem. Sans elle, le programme ne saura pas appeler Twitter
+require 'csv'
+require 'dotenv'
+require 'pry'
 require 'twitter'
 
-# Appelle la gem dotenv
-require 'dotenv'
 
-require 'pry'
-require 'csv'
+
 
 # Ceci appelle le fichier .env grâce à la gem dotenv, et enregistre toutes les données enregistrées dans une hash ENV
 Dotenv.load

@@ -1,51 +1,75 @@
-require 'watir'
-# Appelle la gem dotenv
+require 'csv'
 require 'dotenv'
-# Ceci appelle le fichier .env grâce à la gem dotenv, et enregistre toutes les données enregistrées dans une hash ENV
 Dotenv.load
+require_relative 'townhalls_scrapper'
+require 'twitter'
+require 'pry'
 
-require 'json'
 
 class Handles
+	attr_accessor :townhalls_handles
 
-	def search_handle(townhall_name)
-		townhall_name = "la colle sur loup"
-		browser = Watir::Browser.new
-		browser.goto 'https://twitter.com/login?lang=en'
+	def initialize
+		@townhalls_handles = []	
 
-		email_user = browser.text_field(class: "js-username-field")
-		# position du champ email à remplir dans la page
-		email_user.set("thp.nice@gmail.com")
-		# email de l'utilisateur
+############################# LOG IN TWITTER ############################# 
 
-		password_user = browser.text_field(class: "js-password-field")
-		# position du champ password à remplir dans la page
-		password_user.set(ENV["THP_TWITTER_PASSWORD"])
+		@client = Twitter::REST::Client.new do |config|
+				config.consumer_key        = ENV["TWITTER_API_KEY"]
+				config.consumer_secret     = ENV["TWITTER_API_SECRET"]
+				config.access_token        = ENV["TWITTER_USER_TOKEN"]
+				config.access_token_secret = ENV["TWITTER_USER_TOKEN_SECRET"]
+			end
 
-		browser.send_keys(:enter)
-
-		browser.driver.manage.timeouts.implicit_wait = 3
-		#permet d'attendre que la page se charge
-
-		search_bar = browser.text_field(class: "search-input")
-		# position de la barre de recherche dans la page
-		search_bar.set("mairie #{townhall_name}")
-		# ce que l'on veut y écrire
-
-		search_bar.send_keys(:enter)
-		# comme si on appuyait sur entrée pour valider la recherche
-
-		browser.driver.manage.timeouts.implicit_wait = 20
-		#permet d'attendre que la page se charge
-
-		@townhall_handle = browser.div(class: "stream").span(class: "username").text
-		# affiche le handle du 1er tweet
-		return @townhall_handle
 	end
 
-p "Méfait accompli, fermeture du browser"
+######################## RECHERCHE HANDLE TWITTER ######################## 
+	def search_handles
 
-	#browser.close
+		CSV.foreach("../../db/townhalls_names_emails_listing.csv") do |row|
+		#lit le fichier CSV ligne par ligne et pour chaque fait :
+			begin
+				@client.search("mairie #{row[0]}").take(1).collect do |tweet|
+				# rechercher les tweets contenant mairie de XX 
+			  		@townhalls_handles << tweet.user.screen_name
+			  		# ajouter les handles au tableau
+				end
+			rescue StandardError => e
+			#permet de ne pas arreter le programme si Twitter bloque l'accès (cause des quotas)
+				puts "Mince ! Il y a eu un problème avec Twitter.. ils nous ont bloqué l'accès ! Quand trop de hack tue le hack ! ;)"
+				return @townhalls_handles
+				add_handle_to_csv
+				# appelle la méthode en cas d'erreur et retourne le tableau en l'état
+			end 
+		end
+		return @townhalls_handles 
+	end
+
+	def add_handle_to_csv
+	# ajoute les handles dans le tableau contenant les noms et emails
+		i = 0
+		while i < @townhalls_handles.size
+			@@townhalls_names_emails.collect do |k, v|
+				k['handle'] = @townhalls_handles[i]
+				i += 1
+			end 
+		end
+    
+		CSV.open("../../db/townhalls_names_emails_listing.csv", "wb") do |csv_file|
+		# réécrit sur le fichier .csv
+			csv_file << @@townhalls_names_emails.first.keys
+			@@townhalls_names_emails.each do |the_hash|
+				csv_file << the_hash.values
+			end
+	end
+		
+	end
+
+	def perform
+		search_handles
+		add_handle_to_csv
+	end
+
 end
 
-Handles.new.search_handle
+Handles.new.perform
