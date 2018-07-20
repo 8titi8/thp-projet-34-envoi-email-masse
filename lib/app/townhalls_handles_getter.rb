@@ -71,5 +71,3 @@ class Handles
 	end
 
 end
-
-Handles.new.perform

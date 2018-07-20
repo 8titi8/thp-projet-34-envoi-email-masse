@@ -4,6 +4,7 @@ require 'gmail'   # on va chercher la gem gmail qui va nous permettre de transme
 require 'dotenv'  # permet de se servir du .env qui contient le password
 require 'mail'    # permet de mettre en format html  le message envoyé
 require 'json'    # va nous permettre de récup et utiliser le fichier json
+require 'csv'
 Dotenv.load
 
 class Mailer
@@ -17,13 +18,13 @@ class Mailer
     end
     # def qui va permettre de récupérer les fichiers JSON et transformer la donner de sorte
     # à n'utiliser que les emails
-    def address_book_emails
 
-    end
-    def message
-        @@session_gmail
+    #def qui sert à envoyer les emails aux mairies via le compte gmail de THP Nice et
+    #qui indique qu'il nous faut trouver un mail et un nom de mairie
+    def send_message_to(city_name, email)
+        @@session_gmail #définie ci-dessus, elle permet de se connecter à notre compte gmail
         @@email = @@session_gmail.deliver do
-        to "gaelle.gorgori@gmail.com"
+        to "#{email}" #l'instance email que nous allons chercher plus bas avec le fichier des mairies
         subject "Un message de THP Nice pour vous"
 
         html_part do
@@ -36,7 +37,7 @@ class Mailer
         font apprendre le code. Le projet du jour est d'envoyer (avec du codage) des emails aux mairies
         pour qu'ils nous aident à faire de The Hacking Project un nouveau format d'éducation pour tous.</p>
 
-        <p>Déjà 500 personnes sont passées par The Hacking Project. Est-ce que la mairie de [NOM_COMMUNE]
+        <p>Déjà 500 personnes sont passées par The Hacking Project. Est-ce que la mairie de #{city_name}
         veut changer le monde avec nous ?</p>
 
         <p>Charles, co-fondateur de The Hacking Project pourra répondre à toutes vos questions.
@@ -47,14 +48,20 @@ class Mailer
 
         <p>L'équipe THP de Nice.</p></font>"
       end
-      add_file "thp-logo.png"
+      add_file "thp-logo.png" # et on ajoute une petite photo THP, c'est la classe!
         end
+    end
+    #méthode qui permet d'aller récupérer notre fichier csv des mairies, et spliter
+    #les infos dont nous avons besoin pour la méthode send_message
+    def get_email_from_csv
+        CSV.foreach("../../db/townhalls_names_emails_listing.csv") do |row|
+           send_message_to(row[0], row[1])
+            end
     end
 
     def perform
-        message
+        get_email_from_csv
     end
 
 end
 
-Mailer.new.perform

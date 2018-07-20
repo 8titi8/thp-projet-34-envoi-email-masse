@@ -51,23 +51,24 @@ class Scrapper
 
 	end
 
-def perform_all_url
-	 get_all_the_urls_of("haute-vienne.html","87")
-	 get_all_the_urls_of("var.html","83")
-	 get_all_the_urls_of("allier.html","03")
-end
-
-def create_csv(array_to_push)
-		CSV.open("../../db/townhalls_names_emails_listing.csv", "wb") do |csv_file|
-			csv_file << array_to_push.first.keys
-			array_to_push.each do |the_hash|
-				csv_file << the_hash.values
-			end
+	def perform_all_url
+		 get_all_the_urls_of("haute-vienne.html","87")
+		 get_all_the_urls_of("var.html","83")
+		 get_all_the_urls_of("allier.html","03")
 	end
+
+	def create_csv(array_to_push)
+			CSV.open("../../db/townhalls_names_emails_listing.csv", "wb") do |csv_file|
+				csv_file << array_to_push.first.keys
+				array_to_push.each do |the_hash|
+					csv_file << the_hash.values
+				end
+		end
+	end
+
+	def perform
+		create_csv(perform_all_url)
+	end
+
 end
 
-def perform
-	create_csv(perform_all_url)
-end
-
-end
