@@ -2,6 +2,7 @@ require 'townhalls_scrapper'
 require 'townhalls_mailer'
 require 'townhalls_handles_getter'
 require 'townhalls_follower'
+require 'done'
 
 class View
 
@@ -34,7 +35,7 @@ class View
     end
 
     if choice == 1
-    fname = "../../db/townhalls_names_emails_listing.csv"
+    fname = "./db/townhalls_names_emails_listing.csv"
     somefile = File.open(fname,"w")
     somefile.close
       Done.new.open_csv_done
@@ -48,7 +49,7 @@ class View
       Done.new.mailer_done
 
     elsif choice == 4
-     Handles.new.search_handle
+     Handles.new.search_handles
       Done.new.handles_done
       elsif choice == 5
       Follower.new.follow_each_townhall

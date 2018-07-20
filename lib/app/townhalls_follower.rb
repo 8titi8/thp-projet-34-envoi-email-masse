@@ -19,7 +19,7 @@ class Follower
 	end
 
 	def follow_each_townhall
-		CSV.foreach("../../db/townhalls_names_emails_listing.csv") do |row|
+		CSV.foreach("./db/townhalls_names_emails_listing.csv") do |row|
 				@client.follow("#{row[3]}")
 		end
 	end

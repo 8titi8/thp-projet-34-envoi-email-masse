@@ -1,7 +1,3 @@
-require '../app/townhalls_follower'
-require '../app/townhalls_handles_getter'
-require '../app/townhalls_mailer'
-require '../app/townhalls_scrapper'
 require 'index'
 
 

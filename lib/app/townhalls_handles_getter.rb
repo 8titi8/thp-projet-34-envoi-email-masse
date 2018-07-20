@@ -26,7 +26,7 @@ class Handles
 ######################## RECHERCHE HANDLE TWITTER ######################## 
 	def search_handles
 
-		CSV.foreach("../../db/townhalls_names_emails_listing.csv") do |row|
+		CSV.foreach("./db/townhalls_names_emails_listing.csv") do |row|
 		#lit le fichier CSV ligne par ligne et pour chaque fait :
 			begin
 				@client.search("mairie #{row[0]}").take(1).collect do |tweet|
@@ -55,7 +55,7 @@ class Handles
 			end 
 		end
     
-		CSV.open("../../db/townhalls_names_emails_listing.csv", "wb") do |csv_file|
+		CSV.open("./db/townhalls_names_emails_listing.csv", "wb") do |csv_file|
 		# réécrit sur le fichier .csv
 			csv_file << @@townhalls_names_emails.first.keys
 			@@townhalls_names_emails.each do |the_hash|

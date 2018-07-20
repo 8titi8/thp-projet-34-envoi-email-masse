@@ -4,6 +4,7 @@ require 'open-uri'
 require 'csv'
 
 
+
 class Scrapper
 	attr_accessor :townhalls_emails, :townhalls_names
 
@@ -58,7 +59,7 @@ class Scrapper
 	end
 
 	def create_csv(array_to_push)
-			CSV.open("../../db/townhalls_names_emails_listing.csv", "wb") do |csv_file|
+			CSV.open("./db/townhalls_names_emails_listing.csv", "wb") do |csv_file|
 				csv_file << array_to_push.first.keys
 				array_to_push.each do |the_hash|
 					csv_file << the_hash.values
