@@ -1,10 +1,7 @@
-$:.unshift File.expand_path("/../app", __FILE__)
-
-require 'townhalls_follower'
-require 'townhalls_handles_getter'
-require 'townhalls_mailer'
 require 'townhalls_scrapper'
-require 'done'
+require 'townhalls_mailer'
+require 'townhalls_handles_getter'
+require 'townhalls_follower'
 
 class View
 
@@ -65,3 +62,5 @@ class View
 
 
 end
+
+View.new.perform
