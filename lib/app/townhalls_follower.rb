@@ -3,10 +3,7 @@ require 'dotenv'
 require 'pry'
 require 'twitter'
 
-
-
-
-# Ceci appelle le fichier .env grâce à la gem dotenv, et enregistre toutes les données enregistrées dans une hash ENV
+# Ceci appelle le fichier .env grâce à la gem dotenv
 Dotenv.load
 
 class Follower
@@ -23,7 +20,7 @@ class Follower
 
 	def follow_each_townhall
 		CSV.foreach("../../db/townhalls_names_emails_listing.csv") do |row|
-				@client.follow("#{row[3].delete_prefix("@")}")
+				@client.follow("#{row[3]}")
 		end
 	end
 

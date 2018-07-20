@@ -1,7 +1,7 @@
 require 'bundler'
 Bundler.require
 
-$.unshift File.expand_path("./../lib/views", __FILE__)
+$:.unshift File.expand_path("./../lib/views", __FILE__)
 require 'index'
 
 # Classe mere qui va chercher le View
